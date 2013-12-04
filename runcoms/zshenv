@@ -27,11 +27,24 @@ fi
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
 #export _JAVA_OPTIONS='-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 
-# includes android sdk path
+# android sdk path vars
 ANDROID_SDK_ROOT=$HOME/workarea/embedded/android/sdk/android-sdk-linux
 ANDROID_SDK_TOOLS=$ANDROID_SDK_ROOT/tools
 ANDROID_SDK_PLATFORM_TOOLS=$ANDROID_SDK_ROOT/platform-tools
-export PATH=$HOME/workarea/embedded/android/bin:$ANDROID_SDK_TOOLS:$ANDROID_SDK_PLATFORM_TOOLS:$HOME/workarea/embedded/android/ndk/android-ndk-r5c/:$PATH
+
+# PATH should already be exported, but in case not. . .
+path=(
+ "$HOME/bin"
+ "$HOME/workarea/embedded/android/bin"
+ "$ANDROID_SDK_TOOLS"
+ "$ANDROID_SDK_PLATFORM_TOOLS"
+ "$HOME/workarea/embedded/android/ndk/android-ndk-r5c"
+ "$path[@]"
+)
+export PATH
+
+# Only unique entries please.
+typeset -U path
 
 # default editor
 export EDITOR=vim
