@@ -46,10 +46,6 @@ export PATH
 # Only unique entries please.
 typeset -U path
 
-# default editor
-export EDITOR=vim
-export GIT_EDITOR=vim
-
 # ntlmaps http proxy setting
 export HTTP_PROXY=http://localhost:5865
 export HTTPS_PROXY=$HTTP_PROXY
