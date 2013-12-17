@@ -6,7 +6,7 @@
 #
 
 # Ensure that a non-login, non-interactive shell has a defined environment.
-if [[ "$SHLVL" -eq 1 && ! -o LOGIN ]]; then
+if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
 
@@ -24,21 +24,21 @@ fi
 #lcd_vbgr – Alternative LCD monitor setting
 #The gasp and lcd settings work well in many instances.
 
-export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
+#export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
 #export _JAVA_OPTIONS='-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 
 # android sdk path vars
-ANDROID_SDK_ROOT=$HOME/workarea/embedded/android/sdk/android-sdk-linux
+ANDROID_SDK_ROOT=$HOME/Workarea/embedded/android/adt-bundle-mac-x86_64/sdk
 ANDROID_SDK_TOOLS=$ANDROID_SDK_ROOT/tools
 ANDROID_SDK_PLATFORM_TOOLS=$ANDROID_SDK_ROOT/platform-tools
 
 # PATH should already be exported, but in case not. . .
 path=(
  "$HOME/bin"
- "$HOME/workarea/embedded/android/bin"
+ "$HOME/Workarea/embedded/android/bin"
  "$ANDROID_SDK_TOOLS"
  "$ANDROID_SDK_PLATFORM_TOOLS"
- "$HOME/workarea/embedded/android/ndk/android-ndk-r5c"
+ "$HOME/Workarea/embedded/android/ndk/android-ndk-r5c"
  "$path[@]"
 )
 export PATH
@@ -55,8 +55,7 @@ export https_proxy=$HTTP_PROXY
 export ftp_proxy=$HTTP_PROXY
 
 # git ssh via proxy
-export GIT_PROXY_COMMAND="$HOME/workarea/embedded/android/bin/socks-gw.sh"
-export GIT_SSH="$HOME/workarea/embedded/android/bin/socks-ssh.sh"
+export GIT_PROXY_COMMAND="$HOME/Workarea/bin/git-proxy.sh"
 
 # excluded svn files from grep
 export GREP_OPTIONS="--exclude=*.svn-base"
