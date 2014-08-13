@@ -46,18 +46,6 @@ export PATH
 # Only unique entries please.
 typeset -U path
 
-# ntlmaps http proxy setting
-export HTTP_PROXY=http://localhost:5865
-export HTTPS_PROXY=$HTTP_PROXY
-export FTP_PROXY=$HTTP_PROXY
-export http_proxy=$HTTP_PROXY
-export https_proxy=$HTTP_PROXY
-export ftp_proxy=$HTTP_PROXY
-
-# git ssh via proxy
-export GIT_PROXY_COMMAND="$HOME/workarea/embedded/android/bin/socks-gw.sh"
-export GIT_SSH="$HOME/workarea/embedded/android/bin/socks-ssh.sh"
-
 # excluded svn files from grep
 export GREP_OPTIONS="--exclude=*.svn-base"
 

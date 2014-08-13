@@ -21,3 +21,7 @@ alias ll='ls++'
 
 alias v='fasd -f -e vim' # quick opening files with vim
 
+alias proxy='env {http,https,ftp}_proxy=http://localhost:5865'
+alias export-proxy='export {http,https,ftp}_proxy=http://localhost:5865'
+
+alias git-proxy='GIT_PROXY_COMMAND=$HOME/workarea/embedded/android/bin/socks-gw.sh'
